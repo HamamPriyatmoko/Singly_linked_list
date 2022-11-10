@@ -92,16 +92,31 @@ namespace Singly_linked_list
                 return (true);
 
 
-        } 
-        
+        }
+        //Method untuk treverse /mengunjungi dan membaca isi list
+        public void treverse()
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList kosong: ");
+            else
+            {
+                Console.WriteLine("\nData di dalam list adalah: ");
+                Node currentNode;
+                for (currentNode = START; currentNode != null; currentNode = currentNode.next)
+                    Console.Write(currentNode.noMhs + "" + currentNode.nama + "\n");
+                Console.WriteLine();
+            }
+        }
+        public bool listEmpty()
+        {
+            if (START == null)
+                return true;
+            else
+                return false;
+        }
     }
-    //Method untuk treverse /mengunjungi dan membaca isi list
 
-    public void treverse()
-    {
-        if (listEmpety)
-            Console.WriteLine("\nList kosong: ");
-    }
+
 
     class Program
     {
