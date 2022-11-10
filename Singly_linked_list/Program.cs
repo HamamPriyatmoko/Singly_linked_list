@@ -45,8 +45,8 @@ namespace Singly_linked_list
                 return;
             }
             //Menemukan lokasi node baru didalam list
-            Node previus, currrent;
-            previus = START;
+            Node previous, currrent;
+            previous = START;
             currrent = START;
 
             while((currrent != null) && (nim >= currrent.noMhs))
@@ -56,14 +56,31 @@ namespace Singly_linked_list
                     Console.WriteLine("\nNomer mahasiswa sama tidak diizinkan");
                     return;
                 }
-                previus = currrent;
+                previous = currrent;
                 currrent = currrent.next;
             }
             nodeBaru.next = currrent;
-            previus.next = nodeBaru;
+            previous.next = nodeBaru;
         }
-        //Methodw
+        //Method untuk menghapus node tertentu didalam list
+        public bool delNode(int nim)
+        {
+            Node previous, current;
+            previous = current = null;
+            //check apakah node yang dimaksud ada di dalam list atau tidak
+            if (Search(nim, ref previous, ref current) == false)
+                return false;
+            previous.next = current.next;
+            if (current == START)
+            {
+                START = START.next;
+                return true;
+            }
+        }
+        //Method untuk meng-check apakah node yang dimaksud ada didalam list atau tidak
+
     }
+
     class Program
     {
         static void Main(string[] args)
