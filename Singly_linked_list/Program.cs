@@ -72,13 +72,35 @@ namespace Singly_linked_list
                 return false;
             previous.next = current.next;
             if (current == START)
-            {
+            
                 START = START.next;
                 return true;
-            }
+            
         }
         //Method untuk meng-check apakah node yang dimaksud ada didalam list atau tidak
+        public bool Search (int nim, ref Node previous, ref Node current)
+        {
+            previous = current;
+            while((current != null) && (nim >= current.noMhs))
+            {
+                previous = current;
+                current = current.next; 
+            }
+            if (current == null)
+                return (false);
+            else
+                return (true);
 
+
+        } 
+        
+    }
+    //Method untuk treverse /mengunjungi dan membaca isi list
+
+    public void treverse()
+    {
+        if (listEmpety)
+            Console.WriteLine("\nList kosong: ");
     }
 
     class Program
